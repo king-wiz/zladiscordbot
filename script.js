@@ -48,24 +48,29 @@ client.on('message', async message =>{
  
 
   if (secondPart === 'apd'){
+	  
+    let fpUpper = firstPart.toUpperCase()
+	  
     const secondEmbed = new MessageEmbed()
 	  .setColor('#0099ff')
-	  .setTitle('K'+ firstPart.toUpperCase() + ' Airport Diagram')
-    .setURL('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/pdf')
-    .setDescription('K' + firstPart.toUpperCase() + ' Airport Diagram Can Be Found Here')
-    .setImage('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/png')
+	  .setTitle('K'+ fpUpper + ' Airport Diagram')
+          .setURL('https://flightaware.com/resources/airport/' + fpUpper + '/APD/AIRPORT+DIAGRAM/pdf')
+          .setDescription('K' + fpUpper + ' Airport Diagram Can Be Found Here')
+          .setImage('https://flightaware.com/resources/airport/' + fpUpper + '/APD/AIRPORT+DIAGRAM/png')
 	  message.channel.send({ embeds: [secondEmbed] });
   }
   if (command == 'checkroute'){
     message.reply('https://flightaware.com/statistics/ifr-route/')
   }
+
   if (command == 'wheretofly'){
+	  
     const randomEmbed = new MessageEmbed()
 	  .setColor('#33FFC1')
 	  .setTitle('**Looking for Somewhere to Fly?**')
-    .setURL('https://flightaware.com/live/airport/random')
-    .setDescription('Click Here to View the Details and Diagram of the Random Aiport ↑')
-    .setTimestamp()
+          .setURL('https://flightaware.com/live/airport/random')
+          .setDescription('Click Here to View the Details and Diagram of the Random Aiport ↑')
+          .setTimestamp()
 	  message.channel.send({ embeds: [randomEmbed] });
   }
     
@@ -111,10 +116,10 @@ client.on('message', async message =>{
     const infoEmbed = new MessageEmbed()
 	  .setColor('#9FFF33')
 	  .setTitle(`**Information for** ${infooValue.name} `)
-    .setURL('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/pdf')
-    .setDescription(`**ICAO**: ${infooValue.icao} \n**IATA**: ${infooValue.iata} \n**Name**: ${infooValue.name} \n**Location**: ${infooValue.location} \n**Country**: ${infooValue.country} \n**Metar**: ${metarValue.data}`)
-    .setImage('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/png')
-    .setTimestamp()
+          .setURL('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/pdf')
+          .setDescription(`**ICAO**: ${infooValue.icao} \n**IATA**: ${infooValue.iata} \n**Name**: ${infooValue.name} \n**Location**: ${infooValue.location} \n**Country**: ${infooValue.country} \n**Metar**: ${metarValue.data}`)
+          .setImage('https://flightaware.com/resources/airport/' + firstPart.toUpperCase() + '/APD/AIRPORT+DIAGRAM/png')
+          .setTimestamp()
 	  message.channel.send({ embeds: [infoEmbed] });
   
 
@@ -285,7 +290,7 @@ if (topten == 'tophours'){
     const toptenEmbed = new MessageEmbed()
 	  .setColor('#11A655')
 	  .setTitle('**Controllers With the Most Hours Currently**')
-    .setDescription(`**--------Local--------**\n**1st:** ${toptenText[0].Localfirst} ${toptenText[1].LocalTime} \n**2nd:** ${toptenText[2].Localsecond} ${toptenText[3].LocalSecondTime} \n**3rd:** ${toptenText[4].Localthird} ${toptenText[5].LocalThirdTime}  \n**--------Tracon-------**\n**1st:** ${toptenText[6].Traconfirst} ${toptenText[7].TraconTime} \n**2nd:** ${toptenText[8].Traconsecond} ${toptenText[9].TraconsecondTime} \n**3rd:** ${toptenText[10].Traconthird} ${toptenText[11].TraconThirdTime} \n**--------Enroute------**\n**1st:** ${toptenText[12].Enroutefirst} ${toptenText[13].EnrouteTime} \n**2nd:** ${toptenText[14].Enroutesecond} ${toptenText[15].EnrouteSecondTime} \n**3rd:** ${toptenText[16].Enroutethird} ${toptenText[17].EnrouteThirdTime} `)
+          .setDescription(`**--------Local--------**\n**1st:** ${toptenText[0].Localfirst} ${toptenText[1].LocalTime} \n**2nd:** ${toptenText[2].Localsecond} ${toptenText[3].LocalSecondTime} \n**3rd:** ${toptenText[4].Localthird} ${toptenText[5].LocalThirdTime}  \n**--------Tracon-------**\n**1st:** ${toptenText[6].Traconfirst} ${toptenText[7].TraconTime} \n**2nd:** ${toptenText[8].Traconsecond} ${toptenText[9].TraconsecondTime} \n**3rd:** ${toptenText[10].Traconthird} ${toptenText[11].TraconThirdTime} \n**--------Enroute------**\n**1st:** ${toptenText[12].Enroutefirst} ${toptenText[13].EnrouteTime} \n**2nd:** ${toptenText[14].Enroutesecond} ${toptenText[15].EnrouteSecondTime} \n**3rd:** ${toptenText[16].Enroutethird} ${toptenText[17].EnrouteThirdTime} `)
 	  message.channel.send({ embeds: [toptenEmbed] });
   })
   .catch(console.error);
